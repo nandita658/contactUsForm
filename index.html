@@ -1,0 +1,218 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>ContactUs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+  <div class="card">
+    <input type="checkbox" id="log" aria-hidden="true" name="">
+    <div class="content">
+      <div class="front">
+        <div class="inner">
+          <div class="text">
+            <h2>Get In Touch</h2>
+            <p>Have a question/comment? Drop us a line</p>
+          </div>
+          <label for="log" aria-hidden="true">Contact Us</label>
+        </div>
+      </div>
+      <div class="back">
+        <div class="inner">
+          <form class="container-conatct" onsubmit="return validation()">
+            <div class="row100">
+              <div class="col100">
+                <div class="inputBox">
+                  <input type="text" name="first" id="first" autocomplete="off" placeholder="First Name">
+                  <span class="line"></span>
+                  <span id="firstName" class="error"></span>
+                </div>
+              </div>
+              <div class="col100">
+                <div class="inputBox">
+                  <input type="text" name="last" id="last" autocomplete="off" placeholder="Last Name">
+                  <span class="line"></span>
+                  <span id="lastName" class="error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row100">
+              <div class="col100">
+                <div class="inputBox">
+                  <input type="text" name="email" id="email" autocomplete="off" placeholder="Email ID">
+                  <span class="line"></span>
+                  <span id="emailId" class="error"></span>
+                </div>
+              </div>
+              <div class="col100">
+                <div class="inputBox">
+                  <input type="text" name="num" id="num" autocomplete="off" placeholder="Phone Number">
+                  <span class="line"></span>
+                  <span id="phNum" class="error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row100">
+              <div class="col100">
+                <div class="inputBox">
+                  <input type="password" name="pass" id="myInp" autocomplete="off" placeholder="Password">
+                  <span class="eye" onclick="myFunction()">
+                    <i id="hide1" class="fa fa-eye"></i>
+                    <i id="hide2" class="fa fa-eye-slash"></i>
+                  </span>
+                  <span class="line"></span>
+                  <span id="password" class="error"></span>
+                </div>
+              </div>
+              <div class="col100">
+                <div class="inputBox">
+                  <input type="password" name="rePass" id="myInp1" autocomplete="off" placeholder="Confirm Password">
+                  <span class="eye" onclick="myFunction1()">
+                    <i id="hide11" class="fa fa-eye"></i>
+                    <i id="hide21" class="fa fa-eye-slash"></i>
+                  </span>
+                  <span class="line"></span>
+                  <span id="conPass" class="error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row100">
+              <div class="col100">
+                <input type="submit" name="submit" value="Submit">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myInp");
+      var y = document.getElementById("hide1");
+      var z = document.getElementById("hide2");
+      if (x.type==='password') {
+        x.type = "text";
+        y.style.display = "block";
+        z.style.display = "none";
+      }
+      else {
+        x.type = "password";
+        y.style.display = "none";
+        z.style.display = "block";
+      }
+    }
+    function myFunction1() {
+      var a = document.getElementById("myInp1");
+      var b = document.getElementById("hide11");
+      var c = document.getElementById("hide21");
+      if (a.type==='password') {
+        a.type = "text";
+        b.style.display = "block";
+        c.style.display = "none";
+      }
+      else {
+        a.type = "password";
+        b.style.display = "none";
+        c.style.display = "block";
+      }
+    }
+    function validation() {
+      var first = document.getElementById('first').value;
+      var last = document.getElementById('last').value;
+      var email = document.getElementById('email').value;
+      var num = document.getElementById('num').value;
+      var myInp = document.getElementById('myInp').value;
+      var myInp1 = document.getElementById('myInp1').value;
+
+      if (first=="") {
+        document.getElementById('firstName').innerHTML = "** Please fill first name field";
+        return false;
+      }
+      if ((first.length <= 2) || (first.length > 20)) {
+        document.getElementById('firstName').innerHTML = "** First name length must be between 2 and 20";
+        return false;
+      }
+      if (!isNaN(first)) {
+        document.getElementById('firstName').innerHTML = "** Only characters are allowed";
+        return false;
+      }
+
+      if (last=="") {
+        document.getElementById('lastName').innerHTML = "** Please fill last name field";
+        return false;
+      }
+      if ((last.length <= 2) || (last.length > 20)) {
+        document.getElementById('lastName').innerHTML = "** Last name length must be between 2 and 20";
+        return false;
+      }
+      if (!isNaN(last)) {
+        document.getElementById('lastName').innerHTML = "** Only characters are allowed";
+        return false;
+      }
+
+      if (email=="") {
+        document.getElementById('emailId').innerHTML = "** Please fill email field";
+        return false;
+      }
+      if (email.indexOf('@') <= 0) {
+        document.getElementById('emailId').innerHTML = "** Enter valid email id";
+        return false;
+      }
+      if ((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')) {
+        document.getElementById('emailId').innerHTML = "** Invalid position";
+        return false;
+      }
+
+      if (num=="") {
+        document.getElementById('phNum').innerHTML = "** Please fill phone no. field";
+        return false;
+      }
+      if (isNaN(num)) {
+        document.getElementById('phNum').innerHTML = "** Use digits only";
+        return false;
+      }
+      if (num.length != 10) {
+        document.getElementById('phNum').innerHTML="** Write 10 digits";
+        return false;
+      }
+
+      if (myInp=="") {
+        document.getElementById('password').innerHTML = "** Please fill password field";
+        return false;
+      }
+      if ((myInp.length <= 5) || (myInp.length > 20)) {
+        document.getElementById('password').innerHTML = "** Password length must be between 5 and 20";
+        return false;
+      }
+
+      if (myInp1=="") {
+        document.getElementById('conPass').innerHTML = "** Please fill confirm password field";
+        return false;
+      }
+      if (myInp!=myInp1) {
+        document.getElementById('conPass').innerHTML = "** Password is not matching";
+        return false;
+      }
+    }
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>

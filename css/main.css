@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(rgba(102,51,0,0.2),rgba(102,51,0,0.2)), url("images/photo-1505682634904-d7c8d95cdc50.jpeg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  height: 450px;
+  width: 650px;
+  perspective: 1500px;
+}
+
+#log {
+  display: none;
+}
+
+#log:checked ~ .content {
+  animation: 2s animate;
+  transform: rotateY(180deg);
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url("images/andrew-buchanan-zh4XakpEu6s-unsplash (1).jpg");
+  background-position: center;
+  background-size: cover;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+  transition: transform 1s cubic-bezier(0.75,0,0.85,1);
+  color: #e7dec8;
+  border-radius: 10px;
+}
+
+.text {
+  border-top: 3px solid #e7dec8;
+  border-bottom: 3px solid #e7dec8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.content h2 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  text-align: center;
+}
+
+.content p {
+  text-align: center;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  font-size: 21.5px;
+  padding-top: 5px;
+  font-weight: 100;
+}
+
+.front label {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 27px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.front, .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  perspective: 1500px;
+  border-radius: 10px;
+}
+
+.front {
+  padding-top: 110px;
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-bottom: 80px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.back {
+  transform: rotateY(180deg);
+  padding-top: 53px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 60px;
+  font-family: 'Architects Daughter', cursive;
+}
+
+.inner {
+  height: 100%;
+  padding: 1.5em;
+  transform: translateZ(80px);
+}
+
+.container-conatct .row100 {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px, 1fr));
+}
+
+.container-conatct .row100 .col100 {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 50px;
+}
+
+.container-conatct .row100 .inputBox {
+  position: relative;
+  width: 240px;
+  height: 30px;
+}
+
+.container-conatct .row100 .inputBox input {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0 10px;
+  z-index: 1;
+  color: burlywood;
+  font-weight: 300;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+
+.container-conatct .row100 .inputBox .line {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  height: 0.5px;
+  width: 100%;
+  background: #e7dec8;
+  transition: 0.5s;
+}
+
+.container-conatct .row100 .inputBox input:focus ~ .line {
+  background: burlywood;
+}
+
+input[type="submit"] {
+  border: none;
+  padding: 7px 35px;
+  margin-left: 38px;
+  margin-top: 12px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+  color: #e7dec8;
+  font-size: 90%;
+  border-radius: 3px;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  border: 1px solid burlywood;
+  background: transparent;
+  color: burlywood;
+}
+
+.fa {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.eye {
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+}
+
+#hide1 {
+  display: none;
+}
+
+#hide11 {
+  display: none;
+}
+
+.error {
+  position: absolute;
+  top: 38px;
+  font-size: 13px;
+  line-height: 150%;
+  color: #e7dec8;
+}
+
+::placeholder {
+  color: #e7dec8;
+}
